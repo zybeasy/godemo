@@ -1,0 +1,79 @@
+=== RUN   TestSequential
+2022/10/03 15:05:05 [0;31m====> 方案一： 有竞态问题，串行执行[0m
+2022/10/03 15:05:07 http://golang.org, 1.8627806s, 43187 bytes
+2022/10/03 15:05:08 http://godoc.org, 1.1813698s, 17461 bytes
+2022/10/03 15:05:10 http://play.golang.org, 1.7846264s, 14510 bytes
+2022/10/03 15:05:11 http://golang.io, 794.6162ms, 4569 bytes
+2022/10/03 15:05:11 http://golang.org, 1.3µs, 43187 bytes
+2022/10/03 15:05:11 http://godoc.org, 1.8µs, 17461 bytes
+2022/10/03 15:05:11 http://play.golang.org, 1.2µs, 14510 bytes
+2022/10/03 15:05:13 http://gopl.io, 2.1613088s, 4154 bytes
+--- PASS: TestSequential (7.79s)
+=== RUN   TestConcurrent
+2022/10/03 15:05:13 [0;31m====> 方案一： 有竞态问题，并行执行[0m
+2022/10/03 15:05:13 http://golang.io, 350.7941ms, 4569 bytes
+2022/10/03 15:05:13 http://gopl.io, 494.4526ms, 4154 bytes
+2022/10/03 15:05:13 http://godoc.org, 602.1037ms, 17461 bytes
+2022/10/03 15:05:13 http://godoc.org, 628.6342ms, 17461 bytes
+2022/10/03 15:05:14 http://golang.org, 924.8303ms, 43187 bytes
+2022/10/03 15:05:14 http://golang.org, 1.0927608s, 43187 bytes
+2022/10/03 15:05:14 http://play.golang.org, 1.2969963s, 14510 bytes
+2022/10/03 15:05:14 http://play.golang.org, 1.4397762s, 14510 bytes
+--- PASS: TestConcurrent (1.44s)
+=== RUN   TestSequential2
+2022/10/03 15:05:14 [0;31m====> 方案二： 使用互斥量，但是退化为顺序执行，串行执行[0m
+2022/10/03 15:05:15 http://golang.org, 908.937ms, 43187 bytes
+2022/10/03 15:05:16 http://godoc.org, 578.3453ms, 17461 bytes
+2022/10/03 15:05:17 http://play.golang.org, 1.3220227s, 14510 bytes
+2022/10/03 15:05:17 http://golang.io, 351.3847ms, 4569 bytes
+2022/10/03 15:05:17 http://golang.org, 1.8µs, 43187 bytes
+2022/10/03 15:05:17 http://godoc.org, 1.2µs, 17461 bytes
+2022/10/03 15:05:17 http://play.golang.org, 1.1µs, 14510 bytes
+2022/10/03 15:05:18 http://gopl.io, 488.739ms, 4154 bytes
+--- PASS: TestSequential2 (3.65s)
+=== RUN   TestConcurrent2
+2022/10/03 15:05:18 [0;31m====> 方案二： 使用互斥量，但是退化为顺序执行，并行执行[0m
+2022/10/03 15:05:19 http://golang.org, 926.6453ms, 43187 bytes
+2022/10/03 15:05:19 http://godoc.org, 1.5053995s, 17461 bytes
+2022/10/03 15:05:20 http://golang.io, 1.85724s, 4569 bytes
+2022/10/03 15:05:21 http://play.golang.org, 3.1774396s, 14510 bytes
+2022/10/03 15:05:21 http://golang.org, 3.1773308s, 43187 bytes
+2022/10/03 15:05:21 http://godoc.org, 3.1773675s, 17461 bytes
+2022/10/03 15:05:21 http://play.golang.org, 3.1768375s, 14510 bytes
+2022/10/03 15:05:21 http://gopl.io, 3.6666927s, 4154 bytes
+--- PASS: TestConcurrent2 (3.67s)
+=== RUN   TestConcurrent3
+2022/10/03 15:05:21 [0;31m====> 方案三： 使用互斥量，只将memo的访问放入临界区，并行执行[0m
+2022/10/03 15:05:22 http://golang.io, 354.9747ms, 4569 bytes
+2022/10/03 15:05:22 http://gopl.io, 493.4169ms, 4154 bytes
+2022/10/03 15:05:22 http://godoc.org, 562.5094ms, 17461 bytes
+2022/10/03 15:05:22 http://godoc.org, 571.9693ms, 17461 bytes
+2022/10/03 15:05:22 http://golang.org, 912.486ms, 43187 bytes
+2022/10/03 15:05:22 http://golang.org, 926.0731ms, 43187 bytes
+2022/10/03 15:05:23 http://play.golang.org, 1.2824492s, 14510 bytes
+2022/10/03 15:05:23 http://play.golang.org, 1.2945984s, 14510 bytes
+--- PASS: TestConcurrent3 (1.30s)
+=== RUN   TestConcurrent4
+2022/10/03 15:05:23 [0;31m====> 方案四： 使用互斥量+channel，但是有重复计算的问题，并行执行[0m
+2022/10/03 15:05:23 http://golang.io, 352.3838ms, 4569 bytes
+2022/10/03 15:05:23 http://gopl.io, 492.0514ms, 4154 bytes
+2022/10/03 15:05:23 http://godoc.org, 565.4644ms, 17461 bytes
+2022/10/03 15:05:23 http://godoc.org, 565.4322ms, 17461 bytes
+2022/10/03 15:05:24 http://golang.org, 930.51ms, 43187 bytes
+2022/10/03 15:05:24 http://golang.org, 930.0443ms, 43187 bytes
+2022/10/03 15:05:24 http://play.golang.org, 1.2846348s, 14510 bytes
+2022/10/03 15:05:24 http://play.golang.org, 1.2842068s, 14510 bytes
+--- PASS: TestConcurrent4 (1.29s)
+=== RUN   TestConcurrent5
+2022/10/03 15:05:24 [0;31m====> 方案五： 无锁的channel方案，并行执行[0m
+2022/10/03 15:05:24 http://golang.io, 354.5737ms, 4569 bytes
+2022/10/03 15:05:25 http://gopl.io, 492.3379ms, 4154 bytes
+2022/10/03 15:05:25 http://godoc.org, 616.4044ms, 17461 bytes
+2022/10/03 15:05:25 http://godoc.org, 616.8386ms, 17461 bytes
+2022/10/03 15:05:25 http://golang.org, 918.3982ms, 43187 bytes
+2022/10/03 15:05:25 http://golang.org, 918.9267ms, 43187 bytes
+2022/10/03 15:05:25 http://play.golang.org, 1.2835194s, 14510 bytes
+2022/10/03 15:05:25 http://play.golang.org, 1.282935s, 14510 bytes
+--- PASS: TestConcurrent5 (1.28s)
+PASS
+ok  	memo_test	21.444s
