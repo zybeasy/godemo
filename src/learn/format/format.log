@@ -1,0 +1,80 @@
+[0;31m====> Display strangelove (main.Movie):[0m
+strangelove.Title = "Dr. Strangelove"
+strangelove.Subtitle = "How I learned to Stop Worrying and Love the Bomb"
+strangelove.Year = 1964
+strangelove.Actor["Dr. Strangelove"] = "PeterSellers"
+strangelove.Actor["Grp. Capt. Lionel Mandrake"] = "PeterSellers"
+strangelove.Actor["Pres. Merkin Muffley"] = "PeterSellers"
+strangelove.Actor["Gen. Buck Turgidson"] = "George C. Scott"
+strangelove.Actor["Brig. Gen. Jack D. Ripper"] = "Sterling Hayden"
+strangelove.Actor["Maj. T.J. \"King\" Kong"] = "Slim Pickens"
+strangelove.Oscars[0] = "Best Actor (Nomin.)"
+strangelove.Oscars[1] = "Best Adapted Screenplay (Nomin.)"
+strangelove.Oscars[2] = "Best Director (Nomin.)"
+strangelove.Oscars[3] = "Best Picture (Nomin.)"
+strangelove.Sequel = nil
+[0;31m====> Display os.Stderr (*os.File):[0m
+(*(*os.Stderr).file).pfd.fdmu.state = 0
+(*(*os.Stderr).file).pfd.fdmu.rsema = 0
+(*(*os.Stderr).file).pfd.fdmu.wsema = 0
+(*(*os.Stderr).file).pfd.Sysfd = 2
+(*(*os.Stderr).file).pfd.pd.runtimeCtx = 0
+(*(*os.Stderr).file).pfd.iovecs = nil
+(*(*os.Stderr).file).pfd.csema = 0
+(*(*os.Stderr).file).pfd.isBlocking = 1
+(*(*os.Stderr).file).pfd.IsStream = true
+(*(*os.Stderr).file).pfd.ZeroReadIsEOF = true
+(*(*os.Stderr).file).pfd.isFile = true
+(*(*os.Stderr).file).name = "/dev/stderr"
+(*(*os.Stderr).file).dirinfo = nil
+(*(*os.Stderr).file).nonblock = false
+(*(*os.Stderr).file).stdoutOrErr = true
+(*(*os.Stderr).file).appendMode = false
+[0;31m====> Display reflect.rtype (reflect.Value):[0m
+(*reflect.rtype.typ).size = 8
+(*reflect.rtype.typ).ptrdata = 8
+(*reflect.rtype.typ).hash = 871609668
+(*reflect.rtype.typ).tflag = 1
+(*reflect.rtype.typ).align = 8
+(*reflect.rtype.typ).fieldAlign = 8
+(*reflect.rtype.typ).kind = 54
+(*(*reflect.rtype.typ).alg).hash = func(unsafe.Pointer, uintptr) uintptr 0x4556a0
+(*(*reflect.rtype.typ).alg).equal = func(unsafe.Pointer, unsafe.Pointer) bool 0x402da0
+(*(*reflect.rtype.typ).gcdata) = 1
+(*reflect.rtype.typ).str = 9630
+(*reflect.rtype.typ).ptrToThis = 0
+reflect.rtype.ptr = unsafe.Pointer value
+reflect.rtype.flag = 22
+[0;31m====> Display i (int):[0m
+i = 3
+[0;31m====> Display &i (*interface {}):[0m
+(*&i).type = int
+(*&i).value = 3
+[0;31m====> Marshal main.Movie :[0m
+((Title "Dr. Strangelove")
+ (Subtitle "How I learned to Stop Worrying and Love the Bomb")
+ (Year 1964)
+ (Actor (("Dr. Strangelove" "PeterSellers")
+         ("Grp. Capt. Lionel Mandrake" "PeterSellers")
+         ("Pres. Merkin Muffley" "PeterSellers")
+         ("Gen. Buck Turgidson" "George C. Scott")
+         ("Brig. Gen. Jack D. Ripper" "Sterling Hayden")
+         ("Maj. T.J. \"King\" Kong" "Slim Pickens")))
+ (Oscars ("Best Actor (Nomin.)"
+          "Best Adapted Screenplay (Nomin.)"
+          "Best Director (Nomin.)"
+          "Best Picture (Nomin.)"))
+ (Sequel nil))
+[0;31m====> Unmarshal *main.Movie :[0m
+Unmarshal() = {Title:Dr. Strangelove Subtitle:How I learned to Stop Worrying and Love the Bomb Year:1964 Actor:map[Brig. Gen. Jack D. Ripper:Sterling Hayden Dr. Strangelove:PeterSellers Gen. Buck Turgidson:George C. Scott Grp. Capt. Lionel Mandrake:PeterSellers Maj. T.J. "King" Kong:Slim Pickens Pres. Merkin Muffley:PeterSellers] Oscars:[Best Actor (Nomin.) Best Adapted Screenplay (Nomin.) Best Director (Nomin.) Best Picture (Nomin.)] Sequel:<nil>}
+[0;31m====> PrintInfo time.Duration :[0m
+type time.Duration
+func (time.Duration) Hours() float64
+func (time.Duration) Microseconds() int64
+func (time.Duration) Milliseconds() int64
+func (time.Duration) Minutes() float64
+func (time.Duration) Nanoseconds() int64
+func (time.Duration) Round(time.Duration) time.Duration
+func (time.Duration) Seconds() float64
+func (time.Duration) String() string
+func (time.Duration) Truncate(time.Duration) time.Duration
